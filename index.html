@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="is">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rakarastofan Hárlausnir – Háteigsvegi 2, Reykjavík</title>
+  <meta name="description" content="Rakarastofan Hárlausnir á Háteigsvegi 2 í Reykjavík. Bókaðu tíma á netinu.">
+  <meta name="theme-color" content="#171412">
+
+  <meta property="og:title" content="Rakarastofan Hárlausnir">
+  <meta property="og:description" content="Rakarastofa á Háteigsvegi 2 í Reykjavík. Bókaðu tíma á netinu.">
+  <meta property="og:image" content="images/logo.jpg">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="images/logo.jpg">
+  <link rel="apple-touch-icon" href="images/logo.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Upplýsingar fyrir Google (staðsetning, tegund fyrirtækis) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    "name": "Rakarastofan Hárlausnir",
+    "image": "images/logo.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Háteigsvegur 2",
+      "addressLocality": "Reykjavík",
+      "addressCountry": "IS"
+    },
+    "url": "https://noona.is/harlausnir"
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #171412;
+      --surface: #211d1a;
+      --line: #342e29;
+      --text: #efe9e3;
+      --muted: #a89f97;
+      --red: #b3262e;
+      --red-hover: #c93139;
+      --navy: #22426b;
+      --ph: #d9a75b;           /* litur á staðgenglum – hverfur þegar efni er komið */
+      --max: 1120px;
+      --head: "Barlow Condensed", "Arial Narrow", sans-serif;
+      --body: "Barlow", system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--body);
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; }
+
+    .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+    h1, h2, h3 {
+      font-family: var(--head);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      line-height: 1.05;
+    }
+    h2 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1.5rem; }
+    .eyebrow {
+      font-family: var(--head);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    /* Staðgenglar: efni sem vantar enn */
+    .ph { color: var(--ph); border-bottom: 1px dashed var(--ph); }
+
+    /* Hnappar */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 48px; padding: 0 28px;
+      font-family: var(--head); font-weight: 600; font-size: 1.1rem;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      text-decoration: none; border-radius: 2px;
+      transition: background .2s, border-color .2s;
+    }
+    .btn-primary { background: var(--red); color: #fff; }
+    .btn-primary:hover { background: var(--red-hover); }
+    .btn-ghost { border: 1px solid var(--line); color: var(--text); }
+    .btn-ghost:hover { border-color: var(--muted); }
+    :focus-visible { outline: 2px solid var(--ph); outline-offset: 3px; }
+
+    /* Haus */
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(23, 20, 18, 0.9);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+    }
+    header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand {
+      font-family: var(--head); font-weight: 700; font-size: 1.5rem;
+      letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none;
+    }
+    nav { display: flex; align-items: center; gap: 28px; }
+    nav a.link {
+      text-decoration: none; color: var(--muted);
+      font-family: var(--head); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.95rem;
+    }
+    nav a.link:hover { color: var(--text); }
+    header .btn { min-height: 40px; padding: 0 18px; font-size: 1rem; }
+    @media (max-width: 760px) { nav a.link { display: none; } }
+
+    /* Hetja */
+    .hero { padding: 48px 0 72px; text-align: center; }
+    .hero-logo {
+      width: min(420px, 74vw);
+      margin: 0 auto;
+      /* Mýkir brúngráa bakgrunninn í merkinu út í dökkan bakgrunn síðunnar */
+      -webkit-mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
+              mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
+    }
+    .hero h1 { font-size: clamp(2.4rem, 7vw, 4.2rem); margin-top: 8px; }
+    .hero p.lead { color: var(--muted); font-size: 1.15rem; margin: 12px auto 32px; max-width: 34ch; }
+    .hero .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .proof {
+      margin-top: 28px; color: var(--muted); font-size: 0.95rem;
+    }
+    .proof strong { color: var(--text); font-weight: 500; }
+
+    section.block { padding: 88px 0; border-top: 1px solid var(--line); }
+
+    /* Um */
+    .about { display: grid; gap: 48px; align-items: center; }
+    @media (min-width: 860px) { .about { grid-template-columns: 1fr 1fr; } }
+    .about p + p { margin-top: 1em; }
+    .photo-ph {
+      aspect-ratio: 4 / 5;
+      background: var(--surface);
+      border: 1px dashed var(--line);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted); font-size: 0.9rem; text-align: center; padding: 20px;
+    }
+
+    /* Þjónusta */
+    .services { list-style: none; max-width: 720px; }
+    .services li {
+      display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+      padding: 18px 0; border-bottom: 1px solid var(--line);
+    }
+    .services .name { font-family: var(--head); font-size: 1.4rem; text-transform: uppercase; letter-spacing: 0.03em; }
+    
+    .services .meta.ph { border: 0; }
+    .services .meta { color: var(--muted); font-size: 0.95rem; display: block; font-family: var(--body); text-transform: none; letter-spacing: 0; }
+    .services .price { font-family: var(--head); font-size: 1.3rem; white-space: nowrap; }
+    .note { color: var(--muted); margin-top: 24px; font-size: 0.95rem; }
+
+    /* Myndir */
+    .gallery { display: grid; gap: 12px; grid-template-columns: repeat(2, 1fr); }
+    @media (min-width: 860px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
+    .gallery .photo-ph { aspect-ratio: 1; }
+
+    /* Bókun */
+    .booking-frame {
+      background: #fff;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+    .booking-frame iframe { display: block; width: 100%; height: 820px; border: 0; }
+    .booking-fallback { margin-top: 20px; color: var(--muted); font-size: 0.95rem; }
+
+    /* Staðsetning */
+    .visit { display: grid; gap: 48px; }
+    @media (min-width: 860px) { .visit { grid-template-columns: 1fr 1.3fr; } }
+    .visit dl { display: grid; gap: 24px; }
+    .visit dt { font-family: var(--head); text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); font-size: 0.85rem; }
+    .visit dd { font-size: 1.15rem; margin-top: 4px; }
+    .hours { display: grid; grid-template-columns: auto auto; justify-content: start; column-gap: 32px; row-gap: 4px; }
+    .map {
+      min-height: 360px; border: 1px solid var(--line);
+      filter: grayscale(1) invert(0.92) contrast(0.9);
+    }
+    .map iframe { width: 100%; height: 100%; min-height: 360px; border: 0; display: block; }
+
+    footer { border-top: 1px solid var(--line); padding: 40px 0 120px; color: var(--muted); font-size: 0.9rem; }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+    @media (min-width: 760px) { footer { padding-bottom: 40px; } }
+
+    /* Fastur bókunarhnappur neðst á síma */
+    .mobile-book {
+      position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 20;
+      box-shadow: 0 8px 24px rgba(0,0,0,.45);
+    }
+    @media (min-width: 760px) { .mobile-book { display: none; } }
+
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="wrap">
+      <a href="#" class="brand">Hárlausnir</a>
+      <nav aria-label="Aðalvalmynd">
+        <a class="link" href="#thjonusta">Þjónusta</a>
+        <a class="link" href="#um">Um stofuna</a>
+        <a class="link" href="#stadsetning">Opnunartími</a>
+        <a class="btn btn-primary" href="#boka">Bóka tíma</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HETJA -->
+    <section class="hero">
+      <div class="wrap">
+        <img class="hero-logo" src="images/logo.jpg" width="751" height="751"
+             alt="Merki Hárlausna: rakarinn með krosslagðar hendur milli tveggja rakarastanga">
+        <h1>Rakarastofan Hárlausnir</h1>
+        <p class="lead">Rakarastofa á Háteigsvegi 2 í Reykjavík.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#boka">Bóka tíma</a>
+          <a class="btn btn-ghost" href="#thjonusta">Verðskrá</a>
+        </div>
+        <p class="proof"><strong>Yfir 450 umsagnir</strong> á Noona</p>
+      </div>
+    </section>
+
+    <!-- UM -->
+    <section class="block" id="um">
+      <div class="wrap about">
+        <div>
+          <p class="eyebrow">Um stofuna</p>
+          <h2>Maðurinn á merkinu</h2>
+          <p><span class="ph">[Nafn rakarans]</span> hefur klippt í <span class="ph">[X ár]</span>. <span class="ph">[Tvær til þrjár setningar um hann: hvar hann lærði, hvað einkennir vinnuna hans, hvernig er að setjast í stólinn.]</span></p>
+          <p><span class="ph">[Ein setning um stofuna sjálfa: stemninguna, hverfið, fyrir hverja hún er.]</span></p>
+        </div>
+        <div class="photo-ph">Mynd af rakaranum við vinnu</div>
+      </div>
+    </section>
+
+    <!-- ÞJÓNUSTA -->
+    <section class="block" id="thjonusta">
+      <div class="wrap">
+        <p class="eyebrow">Þjónusta og verð</p>
+        <h2>Verðskrá</h2>
+        <ul class="services">
+          <li><span class="name">Herraklipping<span class="meta ph">[mínútur]</span></span><span class="price ph">[verð] kr.</span></li>
+          <li><span class="name">Skeggsnyrting<span class="meta ph">[mínútur]</span></span><span class="price ph">[verð] kr.</span></li>
+          <li><span class="name">Klipping og skegg<span class="meta ph">[mínútur]</span></span><span class="price ph">[verð] kr.</span></li>
+          <li><span class="name">Barnaklipping<span class="meta ph">[mínútur]</span></span><span class="price ph">[verð] kr.</span></li>
+        </ul>
+        <p class="note">Nákvæmt verð og lausir tímar eru í bókunarkerfinu hér fyrir neðan.</p>
+      </div>
+    </section>
+
+    <!-- MYNDIR -->
+    <section class="block" id="myndir" aria-label="Myndir">
+      <div class="wrap">
+        <p class="eyebrow">Af stofunni</p>
+        <div class="gallery">
+          <div class="photo-ph">Klipping – nærmynd</div>
+          <div class="photo-ph">Stóllinn / stofan</div>
+          <div class="photo-ph">Skegg – fyrir og eftir</div>
+          <div class="photo-ph">Verkfærin</div>
+          <div class="photo-ph">Rakarinn</div>
+          <div class="photo-ph">Glugginn / gatan</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BÓKUN -->
+    <section class="block" id="boka">
+      <div class="wrap">
+        <p class="eyebrow">Bókun</p>
+        <h2>Bóka tíma</h2>
+        <!--
+          Noona-bókunin.
+          ATH: Skipta þarf þessu iframe-i út fyrir opinbera kóðann úr Noona HQ:
+          Online Bookings → Visibility → kveikja á iFrame → afrita kóðann og líma hann hér inn.
+        -->
+        <div class="booking-frame">
+          <iframe src="https://noona.is/harlausnir" title="Bókunarkerfi Hárlausna á Noona" loading="lazy"></iframe>
+        </div>
+        <p class="booking-fallback">Sést bókunin ekki? <a href="https://noona.is/harlausnir" target="_blank" rel="noopener">Opnaðu hana beint á Noona →</a></p>
+      </div>
+    </section>
+
+    <!-- STAÐSETNING -->
+    <section class="block" id="stadsetning">
+      <div class="wrap visit">
+        <div>
+          <p class="eyebrow">Heimsókn</p>
+          <h2>Opnunartími og staðsetning</h2>
+          <dl>
+            <div>
+              <dt>Heimilisfang</dt>
+              <dd>Háteigsvegur 2<br>105 Reykjavík</dd>
+            </div>
+            <div>
+              <dt>Opnunartími</dt>
+              <dd class="hours">
+                <span>Mán–fös</span><span class="ph">[00:00]–18:00</span>
+                <span>Laugardagur</span><span class="ph">[tími]</span>
+                <span>Sunnudagur</span><span class="ph">[lokað?]</span>
+              </dd>
+            </div>
+            <div>
+              <dt>Sími</dt>
+              <dd class="ph">[símanúmer]</dd>
+            </div>
+            <div>
+              <dt>Samfélagsmiðlar</dt>
+              <dd class="ph">[Instagram / Facebook]</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="map">
+          <iframe title="Kort: Háteigsvegur 2, Reykjavík" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://maps.google.com/maps?q=H%C3%A1teigsvegur%202%2C%20105%20Reykjav%C3%ADk&z=16&output=embed"></iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="year">2026</span> Rakarastofan Hárlausnir</span>
+      <span>Háteigsvegur 2, 105 Reykjavík</span>
+    </div>
+  </footer>
+
+  <a class="btn btn-primary mobile-book" href="#boka">Bóka tíma</a>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
