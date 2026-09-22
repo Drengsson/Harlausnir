@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Hárlausnir Barbershop – Háteigsvegur 2, Reykjavík</title>
   <meta name="description" content="Hárlausnir, a barbershop at Háteigsvegur 2 in Reykjavík. Men's haircuts since 2001. Book online.">
   <meta name="theme-color" content="#171412">
@@ -198,19 +198,16 @@
     .note { color: var(--muted); margin-top: 24px; font-size: 0.95rem; }
 
     /* Myndir */
-    .gallery { display: grid; gap: 12px; grid-template-columns: repeat(2, 1fr); }
-    @media (min-width: 860px) { .gallery { grid-template-columns: repeat(3, 1fr); } }
-    .gallery .photo-ph { aspect-ratio: 1; }
+    .photo { display: block; width: 100%; height: auto; background: var(--surface); }
+    .photo-wide { aspect-ratio: 2260 / 1018; object-fit: cover; }
+    figure { margin: 0; }
+    figcaption { color: var(--muted); font-size: 0.9rem; margin-top: 10px; }
+    .visit-media { display: grid; gap: 16px; align-content: start; }
+    .maps-link { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--line); justify-self: start; padding-bottom: 2px; }
+    .maps-link:hover { border-color: var(--muted); }
+    .cta { margin-top: 24px; }
+    @media (max-width: 600px) { .photo-wide { aspect-ratio: 4 / 3; } }
 
-    /* Bókun */
-    .booking-frame {
-      background: #fff;
-      border-radius: 4px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-    }
-    .booking-frame iframe { display: block; width: 100%; height: 820px; border: 0; }
-    .booking-fallback { margin-top: 20px; color: var(--muted); font-size: 0.95rem; }
 
     /* Staðsetning */
     .visit { display: grid; gap: 48px; }
@@ -219,19 +216,16 @@
     .visit dt { font-family: var(--head); text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); font-size: 0.85rem; }
     .visit dd { font-size: 1.15rem; margin-top: 4px; }
     .hours { display: grid; grid-template-columns: auto auto; justify-content: start; column-gap: 32px; row-gap: 4px; }
-    .map {
-      min-height: 360px; border: 1px solid var(--line);
-      filter: grayscale(1) invert(0.92) contrast(0.9);
-    }
-    .map iframe { width: 100%; height: 100%; min-height: 360px; border: 0; display: block; }
 
-    footer { border-top: 1px solid var(--line); padding: 40px 0 120px; color: var(--muted); font-size: 0.9rem; }
+    footer { border-top: 1px solid var(--line); padding: 40px 0 calc(120px + env(safe-area-inset-bottom)); color: var(--muted); font-size: 0.9rem; }
+    footer .credit a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--line); }
+    footer .credit a:hover { border-color: var(--muted); }
     footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
     @media (min-width: 760px) { footer { padding-bottom: 40px; } }
 
     /* Fastur bókunarhnappur neðst á síma */
     .mobile-book {
-      position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 20;
+      position: fixed; left: 16px; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 20;
       box-shadow: 0 8px 24px rgba(0,0,0,.45);
     }
     @media (min-width: 760px) { .mobile-book { display: none; } }
@@ -249,7 +243,7 @@
         <a class="link" href="#um">About</a>
         <a class="link" href="#stadsetning">Opening hours</a>
         <a class="lang" href="./" hreflang="is" lang="is" aria-label="Íslenska">IS</a>
-        <a class="btn btn-primary" href="#boka">Book now</a>
+        <a class="btn btn-primary" href="https://noona.is/harlausnir" target="_blank" rel="noopener">Book now</a>
       </nav>
     </div>
   </header>
@@ -264,7 +258,7 @@
         <h1>Hárlausnir Barbershop</h1>
         <p class="lead">Men's haircuts since 2001.<br>Háteigsvegur 2, Reykjavík.</p>
         <div class="actions">
-          <a class="btn btn-primary" href="#boka">Book now</a>
+          <a class="btn btn-primary" href="https://noona.is/harlausnir" target="_blank" rel="noopener">Book now</a>
           <a class="btn btn-ghost" href="#thjonusta">Prices</a>
         </div>
         <p class="proof"><strong>Over 450 reviews</strong> on Noona</p>
@@ -281,7 +275,7 @@
           <p>Men's haircuts are our specialty.</p>
           <p>We look forward to seeing you.</p>
         </div>
-        <div class="photo-ph">Photo of Stefán Rósar at work</div>
+        <img class="photo" src="images/stolarnir-800.webp" srcset="images/stolarnir-800.webp 800w, images/stolarnir-1300.webp 1300w" sizes="(min-width: 860px) 540px, 100vw" width="1357" height="1018" loading="lazy" alt="Two vintage red leather barber chairs in the shop">
       </div>
     </section>
 
@@ -297,7 +291,8 @@
           <li><span class="name">Buzz cut<span class="meta">15 min · clippers only</span></span><span class="price">4,950 ISK</span></li>
           <li><span class="name">Children's haircut<span class="meta">15 min · ages 0–13</span></span><span class="price">7,800 ISK</span></li>
         </ul>
-        <p class="note">The latest prices and available times are always in the booking below.</p>
+        <p class="note">The latest prices and available times are always on Noona.</p>
+        <a class="btn btn-primary cta" href="https://noona.is/harlausnir" target="_blank" rel="noopener">Book on Noona</a>
       </div>
     </section>
 
@@ -305,33 +300,13 @@
     <section class="block" id="myndir" aria-label="Photos">
       <div class="wrap">
         <p class="eyebrow">At the shop</p>
-        <div class="gallery">
-          <div class="photo-ph">Haircut – close-up</div>
-          <div class="photo-ph">The chair / the shop</div>
-          <div class="photo-ph">Beard – before and after</div>
-          <div class="photo-ph">The tools</div>
-          <div class="photo-ph">The barber</div>
-          <div class="photo-ph">The window / the street</div>
-        </div>
+        <picture>
+          <source media="(max-width: 600px)" srcset="images/stofan-innan-m-900.webp" width="900" height="675">
+          <img class="photo photo-wide" src="images/stofan-innan-900.webp" srcset="images/stofan-innan-900.webp 900w, images/stofan-innan-1800.webp 1800w" sizes="(min-width: 1120px) 1080px, 100vw" width="2260" height="1018" loading="lazy" alt="Inside the shop: the barber chairs, the front desk and a window onto the street">
+        </picture>
       </div>
     </section>
 
-    <!-- BÓKUN -->
-    <section class="block" id="boka">
-      <div class="wrap">
-        <p class="eyebrow">Booking</p>
-        <h2>Book an appointment</h2>
-        <!--
-          Noona-bókunin.
-          ATH: Skipta þarf þessu iframe-i út fyrir opinbera kóðann úr Noona HQ:
-          Online Bookings → Visibility → kveikja á iFrame → afrita kóðann og líma hann hér inn.
-        -->
-        <div class="booking-frame">
-          <iframe src="https://noona.is/harlausnir" title="Hárlausnir booking on Noona" loading="lazy"></iframe>
-        </div>
-        <p class="booking-fallback">Booking not showing? <a href="https://noona.is/harlausnir" target="_blank" rel="noopener">Open it directly on Noona →</a></p>
-      </div>
-    </section>
 
     <!-- STAÐSETNING -->
     <section class="block" id="stadsetning">
@@ -343,6 +318,10 @@
             <div>
               <dt>Address</dt>
               <dd>Háteigsvegur 2<br>105 Reykjavík</dd>
+            </div>
+            <div>
+              <dt>Parking</dt>
+              <dd>Private customer parking by the building.</dd>
             </div>
             <div>
               <dt>Opening hours</dt>
@@ -366,10 +345,12 @@
             </div>
           </dl>
         </div>
-        <div class="map">
-          <iframe title="Map: Háteigsvegur 2, Reykjavík" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            src="https://maps.google.com/maps?q=H%C3%A1teigsvegur%202%2C%20105%20Reykjav%C3%ADk&z=16&output=embed"></iframe>
+        <div class="visit-media">
+          <figure>
+            <img class="photo" src="images/stofan-utan-800.webp" srcset="images/stofan-utan-800.webp 800w, images/stofan-utan-1400.webp 1400w" sizes="(min-width: 860px) 620px, 100vw" width="1527" height="1018" loading="lazy" alt="The shop from outside: a red door and a barber pole under the Hárlausnir sign">
+            <figcaption>Look for the red door and the barber pole.</figcaption>
+          </figure>
+          <a class="maps-link" href="https://www.google.com/maps/search/?api=1&query=H%C3%A1teigsvegur+2%2C+105+Reykjav%C3%ADk" target="_blank" rel="noopener">Directions on Google Maps →</a>
         </div>
       </div>
     </section>
@@ -380,10 +361,11 @@
     <div class="wrap">
       <span>© <span id="year">2026</span> Hárlausnir ehf.</span>
       <span>Háteigsvegur 2, 105 Reykjavík · <a href="tel:+3545521345">552 1345</a></span>
+      <span class="credit">Web design: <a href="https://drengsson.is" target="_blank" rel="noopener">Drengsson</a></span>
     </div>
   </footer>
 
-  <a class="btn btn-primary mobile-book" href="#boka">Book now</a>
+  <a class="btn btn-primary mobile-book" href="https://noona.is/harlausnir" target="_blank" rel="noopener">Book now</a>
 
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
