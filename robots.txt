@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://harlausnir.is/sitemap.xml

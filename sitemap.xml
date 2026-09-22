@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://harlausnir.is/</loc>
+    <xhtml:link rel="alternate" hreflang="is" href="https://harlausnir.is/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://harlausnir.is/en.html"/>
+  </url>
+  <url>
+    <loc>https://harlausnir.is/en.html</loc>
+    <xhtml:link rel="alternate" hreflang="is" href="https://harlausnir.is/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://harlausnir.is/en.html"/>
+  </url>
+</urlset>
