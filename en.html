@@ -30,7 +30,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Barlow+Condensed:wght@500;600&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Upplýsingar fyrir Google (staðsetning, tegund fyrirtækis) -->
   <script type="application/ld+json">
@@ -67,8 +67,9 @@
       --red: #b3262e;
       --red-hover: #c93139;
       --navy: #22426b;
-      --ph: #d9a75b;           /* litur á staðgenglum – hverfur þegar efni er komið */
+      --cream: #e9dcc3;        /* úr postulínsfótum stólanna */
       --max: 1120px;
+      --display: "Marcellus", Georgia, serif;   /* í anda skiltisins yfir dyrunum */
       --head: "Barlow Condensed", "Arial Narrow", sans-serif;
       --body: "Barlow", system-ui, sans-serif;
     }
@@ -89,10 +90,10 @@
     .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 20px; }
 
     h1, h2, h3 {
-      font-family: var(--head);
-      font-weight: 600;
+      font-family: var(--display);
+      font-weight: 400;
       text-transform: uppercase;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.05em;
       line-height: 1.05;
     }
     h2 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1.5rem; }
@@ -101,12 +102,11 @@
       text-transform: uppercase;
       letter-spacing: 0.18em;
       font-size: 0.85rem;
-      color: var(--muted);
+      color: var(--cream);
       margin-bottom: 0.75rem;
     }
 
     /* Staðgenglar: efni sem vantar enn */
-    .ph { color: var(--ph); border-bottom: 1px dashed var(--ph); }
 
     /* Hnappar */
     .btn {
@@ -121,7 +121,7 @@
     .btn-primary:hover { background: var(--red-hover); }
     .btn-ghost { border: 1px solid var(--line); color: var(--text); }
     .btn-ghost:hover { border-color: var(--muted); }
-    :focus-visible { outline: 2px solid var(--ph); outline-offset: 3px; }
+    :focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
 
     /* Haus */
     header {
@@ -132,8 +132,8 @@
     }
     header .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
     .brand {
-      font-family: var(--head); font-weight: 700; font-size: 1.5rem;
-      letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none;
+      font-family: var(--display); font-weight: 400; font-size: 1.45rem;
+      letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
     }
     nav { display: flex; align-items: center; gap: 28px; }
     nav a.link {
@@ -168,9 +168,15 @@
     .proof {
       margin-top: 28px; color: var(--muted); font-size: 0.95rem;
     }
-    .proof strong { color: var(--text); font-weight: 500; }
+    .proof strong { color: var(--cream); font-weight: 500; }
 
     section.block { padding: 88px 0; border-top: 1px solid var(--line); }
+    @media (max-width: 760px) {
+      section.block { padding: 56px 0; }
+      .hero { padding: 32px 0 56px; }
+    }
+    .band { border-top: 1px solid var(--line); }
+    .band img { display: block; width: 100%; height: auto; max-height: 80vh; object-fit: cover; background: var(--surface); }
 
     /* Um */
     .about { display: grid; gap: 48px; align-items: center; }
@@ -190,7 +196,7 @@
       display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
       padding: 18px 0; border-bottom: 1px solid var(--line);
     }
-    .services .name { font-family: var(--head); font-size: 1.4rem; text-transform: uppercase; letter-spacing: 0.03em; }
+    .services .name { font-family: var(--display); font-size: 1.25rem; text-transform: uppercase; letter-spacing: 0.05em; }
     
     .services .meta.ph { border: 0; }
     .services .meta { color: var(--muted); font-size: 0.95rem; display: block; font-family: var(--body); text-transform: none; letter-spacing: 0; }
@@ -199,13 +205,11 @@
 
     /* Myndir */
     .photo { display: block; width: 100%; height: auto; background: var(--surface); }
-    .photo-wide { aspect-ratio: 2260 / 1018; object-fit: cover; }
     figure { margin: 0; }
     .visit-media { display: grid; gap: 16px; align-content: start; }
     .maps-link { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--line); justify-self: start; padding-bottom: 2px; }
     .maps-link:hover { border-color: var(--muted); }
     .cta { margin-top: 24px; }
-    @media (max-width: 600px) { .photo-wide { aspect-ratio: 4 / 3; } }
 
 
     /* Staðsetning */
@@ -228,6 +232,10 @@
       box-shadow: 0 8px 24px rgba(0,0,0,.45);
     }
     @media (min-width: 760px) { .mobile-book { display: none; } }
+    /* Fasti hnappurinn birtist fyrst þegar hnapparnir efst eru horfnir af skjánum */
+    .js-sticky .mobile-book { transform: translateY(160%); visibility: hidden; transition: transform .25s ease, visibility 0s .25s; }
+    .js-sticky .mobile-book.is-visible { transform: none; visibility: visible; transition: transform .25s ease; }
+    @media (prefers-reduced-motion: reduce) { .js-sticky .mobile-book, .js-sticky .mobile-book.is-visible { transition: none; } }
 
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
@@ -269,7 +277,7 @@
       <div class="wrap about">
         <div>
           <p class="eyebrow">About</p>
-          <h2>The man on the logo</h2>
+          <h2>Stefán Rósar, master barber</h2>
           <p>Stefán Rósar Esjarsson founded Hárlausnir in 2001, the same year he earned his master craftsman's certificate. He has run the shop ever since.</p>
           <p>Men's haircuts are our specialty.</p>
           <p>We look forward to seeing you.</p>
@@ -296,14 +304,11 @@
     </section>
 
     <!-- MYNDIR -->
-    <section class="block" id="myndir" aria-label="Photos">
-      <div class="wrap">
-        <p class="eyebrow">At the shop</p>
+    <section class="band" aria-label="Inside the shop">
         <picture>
           <source media="(max-width: 600px)" srcset="images/stofan-innan-m-900.webp" width="900" height="675">
-          <img class="photo photo-wide" src="images/stofan-innan-900.webp" srcset="images/stofan-innan-900.webp 900w, images/stofan-innan-1800.webp 1800w" sizes="(min-width: 1120px) 1080px, 100vw" width="2260" height="1018" loading="lazy" alt="Inside the shop: the barber chairs, the front desk and a window onto the street">
+          <img src="images/stofan-innan-900.webp" srcset="images/stofan-innan-900.webp 900w, images/stofan-innan-1800.webp 1800w" sizes="100vw" width="2260" height="1018" loading="lazy" alt="Inside the shop: the barber chairs, the front desk and a window onto the street">
         </picture>
-      </div>
     </section>
 
 
@@ -365,6 +370,17 @@
 
   <a class="btn btn-primary mobile-book" href="https://noona.is/harlausnir" target="_blank" rel="noopener">Book now</a>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function () {
+      var btn = document.querySelector('.mobile-book');
+      var hero = document.querySelector('.hero .actions');
+      if (!btn || !hero || !('IntersectionObserver' in window)) return;
+      document.documentElement.classList.add('js-sticky');
+      new IntersectionObserver(function (e) {
+        btn.classList.toggle('is-visible', !e[0].isIntersecting);
+      }).observe(hero);
+    })();
+  </script>
 </body>
 </html>
