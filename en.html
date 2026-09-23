@@ -215,7 +215,9 @@
     .about p + p { margin-top: 1em; }
 
     /* Þjónusta */
-    .services { list-style: none; max-width: 720px; }
+    /* Verðskráin er einn dálkur – miðjuð á sama ás og bókunin */
+    #thjonusta .wrap { max-width: 760px; text-align: center; }
+    .services { list-style: none; max-width: 720px; margin: 0 auto; text-align: left; }
     .services li {
       display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
       padding: 18px 0; border-bottom: 1px solid var(--line);
