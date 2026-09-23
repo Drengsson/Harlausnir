@@ -221,12 +221,10 @@
     @media (max-width: 760px) {
       section.block { padding: 56px 0; }
     }
-    .band { border-top: 1px solid var(--line); }
-    .band img { display: block; width: 100%; height: auto; max-height: 80vh; object-fit: cover; background: var(--surface); }
 
     /* Um */
-    .about { display: grid; gap: 48px; align-items: center; }
-    @media (min-width: 860px) { .about { grid-template-columns: 1fr 1fr; } }
+    /* Um stofuna: einn dálkur, miðjaður eins og verðskráin */
+    .about { max-width: 640px; text-align: center; }
     .about p + p { margin-top: 1em; }
 
     /* Þjónusta */
@@ -327,14 +325,11 @@
     <!-- UM -->
     <section class="block" id="um">
       <div class="wrap about">
-        <div>
-          <p class="eyebrow">About</p>
-          <h2>Stefán Rósar, master barber</h2>
-          <p>Stefán Rósar Esjarsson founded Hárlausnir in 2001, the same year he earned his master craftsman's certificate. He has run the shop ever since.</p>
-          <p>Men's haircuts are our specialty.</p>
-          <p>We look forward to seeing you.</p>
-        </div>
-        <img class="photo" src="images/stolarnir-800.webp" srcset="images/stolarnir-800.webp 800w, images/stolarnir-1300.webp 1300w" sizes="(min-width: 860px) 540px, 100vw" width="1357" height="1018" loading="lazy" alt="Two vintage red leather barber chairs in the shop">
+        <p class="eyebrow">About</p>
+        <h2>Stefán Rósar, master barber</h2>
+        <p>Stefán Rósar Esjarsson founded Hárlausnir in 2001, the same year he earned his master craftsman's certificate. He has run the shop ever since.</p>
+        <p>Men's haircuts are our specialty.</p>
+        <p>We look forward to seeing you.</p>
       </div>
     </section>
 
@@ -353,14 +348,6 @@
         <p class="note">The latest prices and available times are always in the booking at the top of the page.</p>
         <a class="btn btn-primary cta" href="#boka">Book now</a>
       </div>
-    </section>
-
-    <!-- MYNDIR -->
-    <section class="band" aria-label="Inside the shop">
-        <picture>
-          <source media="(max-width: 600px)" srcset="images/stofan-innan-m-900.webp" width="900" height="675">
-          <img src="images/stofan-innan-900.webp" srcset="images/stofan-innan-900.webp 900w, images/stofan-innan-1800.webp 1800w" sizes="100vw" width="2260" height="1018" loading="lazy" alt="Inside the shop: the barber chairs, the front desk and a window onto the street">
-        </picture>
     </section>
 
 
