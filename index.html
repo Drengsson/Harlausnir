@@ -153,27 +153,52 @@
     /* Á síma er fasti hnappurinn neðst nóg – fela hnappinn í hausnum */
     @media (max-width: 760px) { nav { gap: 16px; } header .btn { display: none; } }
 
-    /* Hetja */
-    .hero { padding: 48px 0 72px; text-align: center; }
+    /* Hetja + bókun: bókunin er aðalatriði síðunnar */
+    .hero { padding: 40px 0 88px; }
+    .hero-grid { display: grid; gap: 48px; }
+    .hero-intro { text-align: center; }
     .hero-logo {
-      width: min(420px, 74vw);
+      width: min(300px, 62vw);
       margin: 0 auto;
       /* Mýkir brúngráa bakgrunninn í merkinu út í dökkan bakgrunn síðunnar */
       -webkit-mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
               mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
     }
-    .hero h1 { font-size: clamp(2.4rem, 7vw, 4.2rem); margin-top: 8px; }
-    .hero p.lead { color: var(--muted); font-size: 1.15rem; margin: 12px auto 32px; max-width: 34ch; }
-    .hero .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .proof {
-      margin-top: 28px; color: var(--muted); font-size: 0.95rem;
-    }
+    .hero h1 { font-size: clamp(2.2rem, 6.5vw, 3.6rem); margin-top: 4px; }
+    .hero p.lead { color: var(--cream); font-size: 1.2rem; margin-top: 10px; }
+    .facts { list-style: none; margin-top: 20px; color: var(--muted); display: grid; gap: 4px; }
+    .facts a { color: var(--text); }
+    .proof { margin-top: 20px; color: var(--muted); font-size: 0.95rem; }
     .proof strong { color: var(--cream); font-weight: 500; }
+
+    .booking { scroll-margin-top: 80px; text-align: center; }
+    .booking h2 { margin-bottom: 20px; font-size: clamp(1.7rem, 3vw, 2.2rem); }
+    .booking-card {
+      background: var(--cream);
+      padding: 8px;
+      border-radius: 6px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+    }
+    .booking-card iframe {
+      display: block; width: 100%; border: 0; border-radius: 3px; background: #fff;
+      height: 85vh; min-height: 620px; max-height: 900px;
+    }
+    .booking-alt { margin-top: 14px; color: var(--muted); font-size: 0.9rem; }
+
+    @media (min-width: 980px) {
+      .hero { padding: 64px 0 104px; }
+      .hero-grid { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 72px; align-items: start; }
+      .hero-intro { text-align: left; position: sticky; top: 112px; }
+      .hero-logo { margin: 0 0 8px; width: 260px; }
+      .hero h1 { font-size: clamp(2.2rem, 3.4vw, 3rem); overflow-wrap: break-word; }
+      .booking { text-align: left; }
+      .booking-card { padding: 10px; }
+    }
 
     section.block { padding: 88px 0; border-top: 1px solid var(--line); }
     @media (max-width: 760px) {
       section.block { padding: 56px 0; }
-      .hero { padding: 32px 0 56px; }
+      .hero { padding: 28px 0 64px; }
     }
     .band { border-top: 1px solid var(--line); }
     .band img { display: block; width: 100%; height: auto; max-height: 80vh; object-fit: cover; background: var(--surface); }
@@ -252,25 +277,37 @@
         <a class="link" href="#um">Um stofuna</a>
         <a class="link" href="#stadsetning">Opnunartími</a>
         <a class="lang" href="en.html" hreflang="en" lang="en" aria-label="English">EN</a>
-        <a class="btn btn-primary" href="https://noona.is/harlausnir" target="_blank" rel="noopener">Bóka tíma</a>
+        <a class="btn btn-primary" href="#boka">Bóka tíma</a>
       </nav>
     </div>
   </header>
 
   <main>
 
-    <!-- HETJA -->
+    <!-- HETJA + BÓKUN -->
     <section class="hero">
-      <div class="wrap">
-        <img class="hero-logo" src="images/logo.jpg" width="751" height="751"
+      <div class="wrap hero-grid">
+        <div class="hero-intro">
+          <img class="hero-logo" src="images/logo.jpg" width="751" height="751"
              alt="Merki Hárlausna: rakarinn með krosslagðar hendur milli tveggja rakarastanga">
-        <h1>Rakarastofan Hárlausnir</h1>
-        <p class="lead">Herraklipping síðan 2001.<br>Háteigsvegi 2, Reykjavík.</p>
-        <div class="actions">
-          <a class="btn btn-primary" href="https://noona.is/harlausnir" target="_blank" rel="noopener">Bóka tíma</a>
-          <a class="btn btn-ghost" href="#thjonusta">Verðskrá</a>
+          <h1>Rakarastofan Hárlausnir</h1>
+          <p class="lead">Herraklipping síðan 2001.</p>
+          <ul class="facts">
+            <li>Háteigsvegur 2, 105 Reykjavík</li>
+            <li>Mán–fös 10:00–17:00</li>
+            <li><a href="tel:+3545521345">552 1345</a></li>
+          </ul>
+          <p class="proof"><strong>Yfir 450 umsagnir</strong> á Noona</p>
         </div>
-        <p class="proof"><strong>Yfir 450 umsagnir</strong> á Noona</p>
+
+        <div class="booking" id="boka">
+          <p class="eyebrow">Bókun</p>
+          <h2>Bókaðu tíma</h2>
+          <div class="booking-card">
+            <iframe src="https://noona.is/harlausnir/book?iframe=true&amp;darkModeDisabled=true&amp;showCancelButton=true" title="Tímabókun hjá Hárlausnum á Noona" allow="payment"></iframe>
+          </div>
+          <p class="booking-alt">Sést bókunin ekki? <a href="https://noona.is/harlausnir" target="_blank" rel="noopener">Opnaðu hana á Noona →</a></p>
+        </div>
       </div>
     </section>
 
@@ -300,8 +337,8 @@
           <li><span class="name">Snoðklipping<span class="meta">15 mín · eingöngu rakvél</span></span><span class="price">4.950 kr.</span></li>
           <li><span class="name">Barnaklipping<span class="meta">15 mín · 0–13 ára</span></span><span class="price">7.800 kr.</span></li>
         </ul>
-        <p class="note">Nýjasta verðskráin og lausir tímar eru alltaf á Noona.</p>
-        <a class="btn btn-primary cta" href="https://noona.is/harlausnir" target="_blank" rel="noopener">Bóka tíma á Noona</a>
+        <p class="note">Nýjasta verðskráin og lausir tímar eru alltaf í bókuninni efst á síðunni.</p>
+        <a class="btn btn-primary cta" href="#boka">Bóka tíma</a>
       </div>
     </section>
 
@@ -374,18 +411,20 @@
     </div>
   </footer>
 
-  <a class="btn btn-primary mobile-book" href="https://noona.is/harlausnir" target="_blank" rel="noopener">Bóka tíma</a>
+  <a class="btn btn-primary mobile-book" href="#boka">Bóka tíma</a>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     (function () {
+      // Fasti hnappurinn birtist aðeins eftir að notandinn er kominn fram hjá bókuninni
       var btn = document.querySelector('.mobile-book');
-      var hero = document.querySelector('.hero .actions');
-      if (!btn || !hero || !('IntersectionObserver' in window)) return;
+      var booking = document.getElementById('boka');
+      if (!btn || !booking || !('IntersectionObserver' in window)) return;
       document.documentElement.classList.add('js-sticky');
       new IntersectionObserver(function (e) {
-        btn.classList.toggle('is-visible', !e[0].isIntersecting);
-      }).observe(hero);
+        var r = e[0];
+        btn.classList.toggle('is-visible', !r.isIntersecting && r.boundingClientRect.top < 0);
+      }).observe(booking);
     })();
   </script>
 </body>
