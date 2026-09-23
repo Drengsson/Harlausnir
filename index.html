@@ -122,6 +122,9 @@
     .btn-primary:hover { background: var(--red-hover); }
     :focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
 
+    .skip { position: absolute; left: 12px; top: -60px; z-index: 50; background: var(--cream); color: #171412; padding: 10px 16px; font-weight: 500; text-decoration: none; }
+    .skip:focus { top: 12px; }
+
     /* Haus */
     header {
       position: sticky; top: 0; z-index: 10;
@@ -269,6 +272,7 @@
   </style>
 </head>
 <body>
+  <a class="skip" href="#boka">Beint í bókun</a>
 
   <header>
     <div class="wrap">
