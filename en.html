@@ -153,52 +153,50 @@
     /* Á síma er fasti hnappurinn neðst nóg – fela hnappinn í hausnum */
     @media (max-width: 760px) { nav { gap: 16px; } header .btn { display: none; } }
 
-    /* Hetja + bókun: bókunin er aðalatriði síðunnar */
-    .hero { padding: 40px 0 88px; }
-    .hero-grid { display: grid; gap: 48px; }
-    .hero-intro { text-align: center; }
+    /* Hetja + bókun: skipt skjámynd – bókunin fær hægri helminginn */
+    .hero { padding: 0; }
+    .hero-grid { display: grid; }
+    .hero-intro { text-align: center; padding: 28px 20px 40px; }
     .hero-logo {
-      width: min(300px, 62vw);
+      width: min(240px, 56vw);
       margin: 0 auto;
       /* Mýkir brúngráa bakgrunninn í merkinu út í dökkan bakgrunn síðunnar */
       -webkit-mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
               mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
     }
-    .hero h1 { font-size: clamp(2.2rem, 6.5vw, 3.6rem); margin-top: 4px; }
-    .hero p.lead { color: var(--cream); font-size: 1.2rem; margin-top: 10px; }
-    .facts { list-style: none; margin-top: 20px; color: var(--muted); display: grid; gap: 4px; }
+    .hero h1 { font-size: clamp(2.6rem, 9vw, 4.4rem); margin-top: 4px; line-height: 1; }
+    .h1-pre {
+      display: block; margin-bottom: 10px;
+      font-family: var(--head); font-size: 0.95rem; letter-spacing: 0.24em; color: var(--cream);
+    }
+    .hero p.lead { color: var(--cream); font-size: 1.15rem; margin-top: 14px; }
+    .facts { list-style: none; margin-top: 18px; color: var(--muted); display: grid; gap: 2px; }
     .facts a { color: var(--text); }
-    .proof { margin-top: 20px; color: var(--muted); font-size: 0.95rem; }
+    .proof { margin-top: 18px; color: var(--muted); font-size: 0.95rem; }
     .proof strong { color: var(--cream); font-weight: 500; }
 
-    .booking { scroll-margin-top: 80px; text-align: center; }
-    .booking h2 { margin-bottom: 20px; font-size: clamp(1.7rem, 3vw, 2.2rem); }
-    .booking-card {
-      background: var(--cream);
-      padding: 8px;
-      border-radius: 6px;
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
-    }
-    .booking-card iframe {
-      display: block; width: 100%; border: 0; border-radius: 3px; background: #fff;
-      height: 85vh; min-height: 620px; max-height: 900px;
-    }
-    .booking-alt { margin-top: 14px; color: var(--muted); font-size: 0.9rem; }
+    /* Bókunin situr á sama ljósgráa lit og Noona, svo rammi og kerfi renna saman */
+    .booking { scroll-margin-top: 64px; background: #f7f7f7; padding: 8px 0 20px; }
+    .booking iframe { display: block; width: 100%; border: 0; background: #f7f7f7; height: 85vh; min-height: 620px; max-height: 860px; }
+    .booking-alt { margin: 6px 20px 0; color: #6b6663; font-size: 0.85rem; text-align: center; }
+    .booking-alt a { color: #2b2724; }
 
     @media (min-width: 980px) {
-      .hero { padding: 64px 0 104px; }
-      .hero-grid { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: 72px; align-items: start; }
-      .hero-intro { text-align: left; position: sticky; top: 112px; }
-      .hero-logo { margin: 0 0 8px; width: 260px; }
-      .hero h1 { font-size: clamp(2.2rem, 3.4vw, 3rem); overflow-wrap: break-word; }
-      .booking { text-align: left; }
-      .booking-card { padding: 10px; }
+      .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: calc(100vh - 65px); }
+      .hero-intro {
+        text-align: left; align-self: center;
+        padding: 56px 64px 56px max(20px, calc((100vw - var(--max)) / 2 + 20px));
+      }
+      .hero-logo { margin: 0 0 12px -12px; width: 220px; }
+      .hero h1 { font-size: clamp(3.2rem, 5vw, 4.6rem); }
+      .booking { display: flex; flex-direction: column; padding: 40px 48px 24px; }
+      .booking iframe { flex: 1; height: auto; min-height: 640px; max-height: none; }
+      .booking-alt { text-align: left; margin: 10px 0 0; }
     }
 
     section.block { padding: 88px 0; border-top: 1px solid var(--line); }
     @media (max-width: 760px) {
       section.block { padding: 56px 0; }
-      .hero { padding: 28px 0 64px; }
     }
     .band { border-top: 1px solid var(--line); }
     .band img { display: block; width: 100%; height: auto; max-height: 80vh; object-fit: cover; background: var(--surface); }
@@ -286,11 +284,11 @@
 
     <!-- HETJA + BÓKUN -->
     <section class="hero">
-      <div class="wrap hero-grid">
+      <div class="hero-grid">
         <div class="hero-intro">
           <img class="hero-logo" src="images/logo.jpg" width="751" height="751"
              alt="Hárlausnir logo: the barber, arms crossed, between two barber poles">
-          <h1>Hárlausnir Barbershop</h1>
+          <h1><span class="h1-pre">Barbershop</span> Hárlausnir</h1>
           <p class="lead">Men's haircuts since 2001.</p>
           <ul class="facts">
             <li>Háteigsvegur 2, 105 Reykjavík</li>
@@ -301,11 +299,7 @@
         </div>
 
         <div class="booking" id="boka">
-          <p class="eyebrow">Booking</p>
-          <h2>Book an appointment</h2>
-          <div class="booking-card">
-            <iframe src="https://noona.is/harlausnir/book?iframe=true&amp;darkModeDisabled=true&amp;showCancelButton=true" title="Book at Hárlausnir on Noona" allow="payment"></iframe>
-          </div>
+          <iframe src="https://noona.is/harlausnir/book?iframe=true&amp;darkModeDisabled=true&amp;showCancelButton=true" title="Book at Hárlausnir on Noona" allow="payment"></iframe>
           <p class="booking-alt">Booking not showing? <a href="https://noona.is/harlausnir" target="_blank" rel="noopener">Open it on Noona →</a></p>
         </div>
       </div>
